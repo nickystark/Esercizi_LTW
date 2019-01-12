@@ -5,7 +5,7 @@
 	<!ELEMENT c ((c*,((e,f)|g)*),b)>
 	<!ELEMENT d (#PCDATA|d|z)*>
 	<!ELEMENT e EMPTY>
-	<!ELEMENT f (#PCDATA|a|(c,d)|e)*>
+	<!ELEMENT f (#PCDATA|a|(c,d)|e)*> <!-- (c,d)-> non credo che rispetti il content-model -->
 	<!ATTLIST a 
 		attr CDATA #REQUIRED
 		attra CDATA #IMPLIED>
