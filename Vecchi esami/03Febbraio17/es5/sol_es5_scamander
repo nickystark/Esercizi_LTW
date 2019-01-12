@@ -1,0 +1,51 @@
+<html>
+<head>
+    <script src=""></script>
+</head>
+
+<body>
+inizio documento...
+<button>newDoc1.htm</button>
+<button>newDoc2.htm</button>
+<button>newDoc3.htm</button>
+<button>newDoc4.htm</button>
+<button>newDoc5.htm</button>
+<button>newDoc6.htm</button>
+<button>newDoc7.htm</button>
+<button>newDoc8.htm</button>
+
+<p id="prima_zona">prima zona</p>
+<p id="seconda_zona">seconda zona</p>
+<p id="terza_zona">terza zona</p>
+<div>quarta zona</div>
+...fine documento
+
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            if(this.innerHTML == "newDoc"+(1|2|3)+".htm")
+                $("p#prima_zona").load(this.innerHTML, function(responseTxt, statusTxt, xhr){
+                    if(statusTxt=="error")
+                        alert("Errore "+ xhr.status + ":" + xhr.statusText);
+            });
+            else if(this.innerHTML == "newDoc" + (4|5|6) + ".htm")
+                $("p#seconda_zona").load(this.innerHTML, function(responseTxt, statusTxt, xhr){
+                    if(statusTxt=="error")
+                        alert("Errore "+ xhr.status + ":" + xhr.statusText);    
+            });
+            else
+                $("p#terza_zona").load(this.innerHTML, function(responseTxt, statusTxt, xhr){
+                    if(statusTxt=="error")
+                        alert("Errore "+ xhr.status + ":" + xhr.statusText);
+            });
+
+            $("div").load(this.innerHTML, function(responseTxt, statusTxt, xhr){
+                if(statusTxt=="error")
+                    alert("Errore " + xhr.status + ":" + xhr.statusText);
+            });
+        });
+    });
+</script>
+<!--da testare-->
+</body>
+</html>
